@@ -4,7 +4,7 @@ from app.emoji import count_emoji, extract_emoji, normalise, normalise_query, on
 
 
 def test_extracts_simple_emoji():
-    assert extract_emoji("hej 👍 då 😂") == ["👍", "😂"]
+    assert extract_emoji("hi 👍 there 😂") == ["👍", "😂"]
 
 
 def test_keeps_duplicates_for_counting():
@@ -36,6 +36,7 @@ def test_ignores_bare_punctuation_lookalikes():
 
 
 def test_plain_text_has_no_emoji():
+    # Swedish on purpose: å, ä and ö must not be mistaken for pictographs.
     assert extract_emoji("god jul och gott nytt år") == []
     assert extract_emoji(None) == []
 

@@ -65,7 +65,7 @@ def test_repairs_nested_structures():
     payload = {
         "participants": [{"name": "Henrik EngstrÃ¶m"}],
         "title": "AllmÃ¤n chat",
-        "messages": [{"content": "hej", "reactions": ["ð"]}],
+        "messages": [{"content": "hi","reactions": ["ð"]}],
     }
     fixed = repair(payload)
     assert fixed["participants"][0]["name"] == "Henrik Engström"

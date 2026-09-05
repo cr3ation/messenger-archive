@@ -27,6 +27,9 @@ def thread_json(thread_key: str, title: str, photo_uri: str) -> dict:
             {
                 "sender_name": mangle(FRIEND),
                 "timestamp_ms": 1_500_000_000_000,
+                # Kept in Swedish deliberately: test_emoji_and_fts_indexes_are_searchable
+                # searches this text for "jul", which exercises the tokenizer on
+                # non-ASCII letters. Translating it would quietly weaken that test.
                 "content": mangle("God jul och gott nytt år! 🎄"),
                 "reactions": [{"reaction": mangle("👍"), "actor": mangle(OWNER)}],
                 "is_geoblocked_for_viewer": False,

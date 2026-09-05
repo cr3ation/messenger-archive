@@ -67,7 +67,7 @@ def build_secure_zip(root: Path, name: str = "messages.zip") -> Path:
             "Erika Karlestedt_38",
             "Erika Karlestedt",
             [
-                msg("Erika Karlestedt", 1_700_000_000_000, "hej igen efter krypteringen"),
+                msg("Erika Karlestedt", 1_700_000_000_000, "back again, after the encryption"),
                 msg(OWNER, 1_700_000_060_000, "https://example.com/x", kind="link"),
                 msg(
                     "Erika Karlestedt",
@@ -84,7 +84,7 @@ def build_secure_zip(root: Path, name: str = "messages.zip") -> Path:
         secure_thread(
             "Linnea Östberg_7",
             "Linnea Östberg",
-            [msg("Linnea Östberg", 1_700_000_000_000, "ny kontakt")],
+            [msg("Linnea Östberg", 1_700_000_000_000, "a new contact")],
         ),
     ]
 
@@ -107,9 +107,9 @@ def build_dyi_zip(root: Path, name: str = "facebook-2026-01-01-AAAA.zip") -> Pat
         "thread_path": f"e2ee_cutover/{key}",
         "messages": [
             {"sender_name": dyi_mangle("Erika Karlestedt"), "timestamp_ms": 1_600_000_000_000,
-             "content": dyi_mangle("innan krypteringen")},
+             "content": dyi_mangle("before the encryption")},
             {"sender_name": dyi_mangle(OWNER), "timestamp_ms": 1_600_000_060_000,
-             "content": dyi_mangle("sista före brytet")},
+             "content": dyi_mangle("the last one before the cut-over")},
         ],
     }
     with zipfile.ZipFile(path, "w") as zf:

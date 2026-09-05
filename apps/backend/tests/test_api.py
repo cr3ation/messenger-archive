@@ -55,7 +55,7 @@ def build_export(root: Path, name: str = "facebook-2026-08-05-AAAA.zip") -> Path
             "Erika Karlestedt",
             [OWNER, "Erika Karlestedt"],
             [
-                message("Erika Karlestedt", 1_000_000_000_000, "hej på dig"),
+                message("Erika Karlestedt", 1_000_000_000_000, "hello there"),
                 *[
                     message(OWNER, 1_000_000_100_000 + i * 86_400_000, photo=photos[i])
                     for i in range(5)
