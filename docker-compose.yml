@@ -1,0 +1,31 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile.dev
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      ARCHIVE_DB: /data/archive.db
+      DATA_DIR: /data
+      HOST_DIR: /host
+    volumes:
+      - ./apps/backend:/srv
+      - ./data:/data          # database, thumbnails, uploads and unpacked archives
+      - .:/host:ro            # read-only, only used by the `make import` shortcut
+    ports:
+      - "${API_PORT:-8010}:8000"
+
+  web:
+    image: node:22-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    volumes:
+      - ./apps/frontend:/app
+      - web_node_modules:/app/node_modules
+    ports:
+      - "${WEB_PORT:-5183}:5173"
+    depends_on:
+      - api
+
+volumes:
+  web_node_modules:

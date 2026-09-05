@@ -1,0 +1,10 @@
+*.zip
+your_facebook_activity/
+exports/
+data/
+**/node_modules/
+**/__pycache__/
+**/.pytest_cache/
+apps/frontend/dist/
+.git/
+.DS_Store

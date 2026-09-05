@@ -1,0 +1,29 @@
+# Your archive. Never versioned: the database, the unpacked originals and the
+# thumbnail cache all live here, and together they are tens of gigabytes of
+# private conversation history.
+data/
+
+# Export archives, wherever they are dropped
+*.zip
+your_facebook_activity/
+exports/
+
+# Databases anywhere, not just under data/ — defence in depth
+*.db
+*.db-wal
+*.db-shm
+
+# Environment and secrets
+.env
+.env*
+
+# Build output and caches
+node_modules/
+__pycache__/
+.pytest_cache/
+apps/frontend/dist/
+
+# Editor and OS noise
+.vscode/
+.idea/
+.DS_Store

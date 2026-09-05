@@ -1,0 +1,12 @@
+FROM python:3.12-slim
+
+WORKDIR /srv
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libjpeg62-turbo zlib1g \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY apps/backend/requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+ENV PYTHONUNBUFFERED=1 PYTHONPATH=/srv
